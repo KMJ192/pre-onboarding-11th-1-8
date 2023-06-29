@@ -1,48 +1,34 @@
-# Wanted Front-End Internship Pre-Onboarding
+# 1. 구현 사항
+1. 로그인 / 회원가입
+  - 이메일은 '@' 포함, 비밀번호는 8자 이상의 유효성 검사
+  - 로컬 스토리지에 토큰이 있는 상태로 `/signin` 또는 `/signup` 페이지에 접속한다면 `/todo` 경로로 리다이렉트
+  - 로컬 스토리지에 토큰이 없는 상태로 `/todo` 페이지에 접속한다면 `/signin` 경로로 리다이렉트
 
-- 1일차 과제 Repository
+2. to do 리스트
+  - TODO의 체크박스를 통해 완료 여부 수정
+  - TODO 우측에 수정버튼과 삭제
 
-### 8팀 팀원
+# 2. 사용 라이브러리
+  - react-router-dom
+  - axios
+  - styled-components
 
-김명준, 박세인, 이나령, 조원희, 김범진, 김태헌
+# 3. 프로젝트 설치 및 실행
 
-### 커밋 메시지 양식
-
-- 작성 방법
-
-```
-[액션] 커밋 내용
-```
-
-- 액션
-
-```
-feat: 기능 추가, 삭제, 변경 (코드 수정)
-fix: 버그 수정
-style: 코드 형식 변경
-design: UI 변경
-refactor: 코드 리팩토링
-docs: 코드 외 문서의 추가, 삭제, 변경
-test: 테스트 코드 추가, 삭제, 변경
-etc: 위 해당 사항이 없는 모든 변경 사항
-```
-
-### 프로젝트 실행 방법
-
-- 설치
+1. 프로젝트 패키지 설치
 
 ```
 npm install
 ```
 
-- Dev 모드 실행
+2. 프로젝트 실행
 
 ```
-npm run start
+npm start
 ```
 
-- 프로젝트 빌드
+# 4. 배포 링크
+https://devryyeong-todo.vercel.app/
 
-```
-npm run build
-```
+# 5. 데모영상
+https://github.com/devryyeong/wanted-pre-onboarding-frontend/assets/68095767/9c2dae6e-de3b-4371-9809-8504fd7ac7ac
