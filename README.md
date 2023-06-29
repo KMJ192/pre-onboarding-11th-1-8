@@ -1,90 +1,26 @@
 # Wanted Front-End Internship Pre-Onboarding
 
-### 지원자
+### 8팀 팀원
 
-- 김명준
+김명준, 박세인, 이나령, 조원희, 김범진, 김태헌
 
-### 프로젝트 실행 방법
+### 커밋 메시지 양식
 
-- 설치
-
-```
-npm install
-```
-
-- Dev 모드 실행
+- 작성 방법
 
 ```
-npm run start
+[액션] 커밋 내용
 ```
 
-- 프로젝트 빌드
+- 액션
 
 ```
-npm run build
+feat: 기능 추가, 삭제, 변경 (코드 수정)
+fix: 버그 수정
+type: 코드 형식 변경
+design: UI 변경
+refactor: 코드 리팩토링
+docs: 코드 외 문서의 추가, 삭제, 변경
+test: 테스트 코드 추가, 삭제, 변경
+chore: 빌드 업무 수정, 패키지 매니저 수정
 ```
-
-### 폴더구조
-
-```
-root /
-├ public
-|   ├ index.html
-├ src
-|  ├ components
-|  |    ├ ErrorBoundary.tsx
-|  ├ network
-|  |    ├ api.ts
-|  ├ pageContents
-|  |    ├ SignInContents
-|  |    |     ├ SignInContents.tsx
-|  |    |     ├ style.module.tsx
-|  |    ├ SignUpContents
-|  |    |     ├ SignUpContents.tsx
-|  |    |     ├ style.module.tsx
-|  |    ├ TodoListContents
-|  |    |     ├ TodoListContents.tsx
-|  |    |     ├ style.module.tsx
-|  |    |     ├ Modify
-|  |    |     |   ├ Modify.tsx
-|  |    |     |   ├ style.module.tsx
-|  |    |     ├ Todo
-|  |    |     |   ├ Todo.tsx
-|  |    |     |   ├ style.module.tsx
-|  ├ pages
-|  |    ├ Error
-|  |    |    ├ Error.tsx
-|  |    |    ├ NotFound.tsx
-|  |    |    ├ style.module.scss
-|  |    ├ Index
-|  |    |    ├ Index.tsx
-|  |    ├ SignIn
-|  |    |    ├ SignIn.tsx
-|  |    |    ├ hooks
-|  |    |    |    ├ useSignIn.ts
-|  |    ├ SignUp
-|  |    |    ├ SignUp.tsx
-|  |    |    ├ hooks
-|  |    |    |    ├ useSignUp.ts
-|  |    ├ TodoList
-|  |    |    ├ TodoList.tsx
-|  |    |    ├ hooks
-|  |    |    |    ├ useCreateTodo.ts
-|  |    |    |    ├ useDeleteTodo.ts
-|  |    |    |    ├ useGetTodo.ts
-|  |    |    |    ├ useUpdateTodo.ts
-|  ├ RootRouter
-|  ├ styles
-|  ├ App.css
-|  ├ App.tsx
-|  ├ index.css
-|  ├ index.tsx
-|  ├ package-lock.json
-|  ├ package.json
-|  ├ README.md
-|  ├ tsconfig.json
-```
-
-### 배포 링크
-
-- https://kmj-wanted-pre-onboarding-frontend.vercel.app
