@@ -1,5 +1,19 @@
+@import "../../../styles/button.module.scss";
+
 .todo-left,
 .todo-right {
   display: flex;
   column-gap: 8px;
+  & > button {
+    @include button;
+    padding: 6px 8px;
+  }
+}
+.todo-left {
+  & > span {
+    display: block;
+    max-width: 250px;
+    word-break: break-all;
+    line-height: 1.1;
+  }
 }
