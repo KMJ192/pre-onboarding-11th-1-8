@@ -21,9 +21,25 @@
     }
     .buttons {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       column-gap: 16px;
       .button {
         @include button;
+      }
+    }
+    .sign-in-wrapper {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-top: 10px;
+      .text-button {
+        color: rgb(88, 70, 255);
+        font-weight: 600;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

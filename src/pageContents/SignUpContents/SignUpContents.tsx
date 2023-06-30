@@ -25,7 +25,7 @@ function SignUpContents({
 
   return (
     <div className={cx("container")}>
-      <div className={cx("title")}>회원 가입</div>
+      <div className={cx("title")}>회원가입</div>
       <div className={cx("contents")}>
         <input
           className={cx("input")}
@@ -52,14 +52,14 @@ function SignUpContents({
           >
             회원가입
           </button>
-          <button
-            className={cx("button", "sign-up")}
+          <div
+            className={cx("text-button", "sign-up")}
             onClick={() => {
               navigate("/signin");
             }}
           >
             로그인 하기
-          </button>
+          </div>
         </div>
       </div>
     </div>
