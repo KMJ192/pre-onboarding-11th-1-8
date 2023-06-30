@@ -13,16 +13,18 @@ type GetTodoResModel = {
 type UseGetTodoList = {
   todoList: Array<GetTodoResModel>;
   refetchTodoList: () => void;
+  isLoading: boolean;
 };
 
 function useGetTodoList(): UseGetTodoList {
   const navigate = useNavigate();
 
   const [todoList, setTodoList] = useState<Array<GetTodoResModel>>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetch = async () => {
     const token = window.localStorage.getItem("token");
-
+    setIsLoading(true);
     const response = await fetcher({
       method: "GET",
       url: "/todos",
@@ -30,6 +32,7 @@ function useGetTodoList(): UseGetTodoList {
         Authorization: `Bearer ${token}`,
       },
     });
+    setIsLoading(false);
 
     const { isSuccess, message, status, data } = response;
     if (status === 401) {
@@ -46,11 +49,14 @@ function useGetTodoList(): UseGetTodoList {
   };
 
   useEffect(() => {
-    fetch();
+    setIsLoading(true);
+    fetch().then(() => {
+      setIsLoading(false);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { todoList, refetchTodoList: fetch };
+  return { todoList, refetchTodoList: fetch, isLoading };
 }
 
 export type { GetTodoResModel, UseGetTodoList };
