@@ -9,7 +9,7 @@ const SignIn = lazy(() => import("../pages/SignIn/SignIn"));
 const SignUp = lazy(() => import("../pages/SignUp/SignUp"));
 const TodoList = lazy(() => import("../pages/TodoList/TodoList"));
 const Index = lazy(() => import("../pages/Index/Index"));
-
+  
 function RootRouter() {
   return (
     <ErrorBoundary fallback={<Error />}>
