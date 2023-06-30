@@ -21,6 +21,7 @@
   .title {
     font-weight: 700;
     font-size: 36px;
+    min-width: max-content;
   }
   .todo-list {
     list-style: none;
@@ -30,12 +31,13 @@
     width: 100%;
     overflow: auto;
     padding: 16px;
+    min-width: max-content;
     .todo {
       display: flex;
       align-items: center;
       height: 40px;
       width: 100%;
-      justify-content: space-between;
+      flex-wrap: wrap;
     }
     .loading {
       font-size: 24px;

@@ -21,9 +21,23 @@
     }
     .buttons {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
       column-gap: 16px;
       .button {
         @include button;
+      }
+    }
+    .text-button {
+      display: flex;
+      justify-content: center;
+      font-size: 12px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: rgb(88, 70, 255);
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

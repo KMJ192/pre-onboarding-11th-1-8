@@ -52,14 +52,17 @@ function SignInContents({
           >
             로그인
           </button>
-          <button
-            className={cx("button", "sign-up")}
-            onClick={() => {
-              navigate("/signup");
-            }}
-          >
-            회원가입 하기
-          </button>
+          <div className={cx("sign-in-wrapper")}>
+            <div className={cx("sign-in-message")}>아직 회원이 아니신가요?</div>
+            <div
+              className={cx("text-button", "sign-up")}
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              회원가입 하기
+            </div>
+          </div>
         </div>
       </div>
     </div>

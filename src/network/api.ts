@@ -7,21 +7,21 @@ type ResModel = {
   message: string;
 };
 
-const obj = axios.create({
-  baseURL: "https://www.pre-onboarding-selection-task.shop/",
+const instance = axios.create({
+  baseURL: "https://www.pre-onboarding-selection-task.shop/"
 });
 
 const fetcher = async (params: AxiosRequestConfig): Promise<ResModel> => {
-  const response: ResModel = await obj({
-    ...params,
+  const response: ResModel = await instance({
+    ...params
   })
-    .then((res) => ({
+    .then(res => ({
       status: res.status,
       data: res.data,
       isSuccess: true,
-      message: "",
+      message: ""
     }))
-    .catch((e) => {
+    .catch(e => {
       const tmp = e.response?.data?.message ?? "";
       let message = "";
       if (typeof tmp === "string") {
@@ -34,7 +34,7 @@ const fetcher = async (params: AxiosRequestConfig): Promise<ResModel> => {
         status: e.response?.data?.statusCode ?? 500,
         message,
         data: {},
-        isSuccess: false,
+        isSuccess: false
       };
     });
 

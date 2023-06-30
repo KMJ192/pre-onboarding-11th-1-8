@@ -1,5 +1,39 @@
+@import "../../../styles/button.module.scss";
+
 .todo-left,
 .todo-right {
   display: flex;
   column-gap: 8px;
+  & > button {
+    @include button;
+    background-color: rgb(70, 132, 255);
+    padding: 6px 8px;
+    &:hover {
+      background-color: rgb(112, 152, 255);
+    }
+  }
+}
+
+.todo-left {
+  width: calc(100% - 100px);
+  & > span {
+    display: block;
+    max-width: 250px;
+    word-break: break-all;
+    line-height: 1.1;
+  }
+
+  & > input:nth-child(2) {
+    display: inline-block;
+    min-height: fit-content;
+    // width: 250px;
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid #000;
+  }
+}
+
+.todo-right {
+  margin-left: auto;
 }
