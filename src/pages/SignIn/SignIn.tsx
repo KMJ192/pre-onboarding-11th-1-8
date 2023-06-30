@@ -5,6 +5,8 @@ import SignInContents from "../../pageContents/SignInContents/SignInContents";
 
 import useSignIn from "./hooks/useSignIn";
 
+import { emailRegex } from "../const/emailRegex";
+
 function SignIn() {
   const navigate = useNavigate();
 
@@ -17,7 +19,6 @@ function SignIn() {
   const { signIn } = useSignIn();
 
   const validationChecker = (email: string, password: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(email) && password.length >= 8) {
       setIsValidate(true);
       return;

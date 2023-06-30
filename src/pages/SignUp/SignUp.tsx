@@ -5,6 +5,8 @@ import SignUpContents from "../../pageContents/SignUpContents/SignUpContents";
 
 import useSignUp from "./hooks/useSignUp";
 
+import { emailRegex } from "./../const/emailRegex";
+
 function SignUp() {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({
@@ -16,7 +18,6 @@ function SignUp() {
   const { submit } = useSignUp();
 
   const validationChecker = (email: string, password: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(email) && password.length >= 8) {
       setIsValidate(true);
       return;
