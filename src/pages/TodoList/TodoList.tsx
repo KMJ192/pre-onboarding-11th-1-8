@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 import TodoListContents from "../../pageContents/TodoListContents/TodoListContents";
 
@@ -8,14 +7,15 @@ import useGetTodoList from "./hooks/useGetTodoList";
 import useCreateTodo from "./hooks/useCreateTodo";
 import useUpdateTodo from "./hooks/useUpdateTodo";
 import useDeleteTodo from "./hooks/useDeleteTodo";
+import useAuth from "../../hooks/useAuth";
 
 function TodoList() {
-  const navigate = useNavigate();
+  const { navigateFromTokenNeg } = useAuth();
 
   const { refetchTodoList, ...getTodo } = useGetTodoList();
   const { create, ...createTodo } = useCreateTodo();
   const { update, ...updateTodo } = useUpdateTodo({
-    todoList: getTodo.todoList,
+    todoList: getTodo.todoList
   });
   const { deleteTodo } = useDeleteTodo();
 
@@ -41,9 +41,7 @@ function TodoList() {
   };
 
   useEffect(() => {
-    if (!window.localStorage.getItem("token")) {
-      navigate("/signin");
-    }
+    navigateFromTokenNeg("/signin");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

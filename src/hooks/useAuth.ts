@@ -26,7 +26,19 @@ function useAuth() {
     }
   };
 
-  return { authChecker };
+  const navigateFromToken = (path: string) => {
+    if (window.localStorage.getItem("token")) {
+      navigate(path);
+    }
+  };
+
+  const navigateFromTokenNeg = (path: string) => {
+    if (!window.localStorage.getItem("token")) {
+      navigate(path);
+    }
+  };
+
+  return { authChecker, navigateFromToken, navigateFromTokenNeg };
 }
 
 export default useAuth;

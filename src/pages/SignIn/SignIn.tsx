@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import SignInContents from "../../pageContents/SignInContents/SignInContents";
 
 import useSignIn from "./hooks/useSignIn";
 
 import { emailRegex } from "../const/emailRegex";
+import useAuth from "../../hooks/useAuth";
 
 function SignIn() {
-  const navigate = useNavigate();
-
+  const { navigateFromToken } = useAuth();
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
@@ -49,9 +48,7 @@ function SignIn() {
   };
 
   useEffect(() => {
-    if (window.localStorage.getItem("token")) {
-      navigate("/todo");
-    }
+    navigateFromToken("/todo");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
