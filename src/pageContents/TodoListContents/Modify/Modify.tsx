@@ -17,7 +17,7 @@ function Modify({
   changedTodo,
   onChangeTodoInput,
   onUpdate,
-  onInit,
+  onInit
 }: Props) {
   return (
     <>
@@ -26,8 +26,7 @@ function Modify({
         <input
           data-testid="modify-input"
           value={changedTodo}
-          onChange={onChangeTodoInput}
-        ></input>
+          onChange={onChangeTodoInput}></input>
       </div>
       <div className={cx("todo-right")}>
         <button
@@ -36,8 +35,7 @@ function Modify({
             e.stopPropagation();
             onUpdate(id, isCompleted, changedTodo);
             onInit(e);
-          }}
-        >
+          }}>
           제출
         </button>
         <button data-testid="cancel-button" onClick={onInit}>

@@ -10,10 +10,14 @@
   }
 }
 .todo-left {
+  width: calc(100% - 100px);
   & > span {
     display: block;
-    max-width: 250px;
+    width: 100%;
     word-break: break-all;
     line-height: 1.1;
   }
+}
+.todo-right {
+  margin-left: auto;
 }
