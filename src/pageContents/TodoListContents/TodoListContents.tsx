@@ -11,7 +11,7 @@ import classNames from "classnames/bind";
 import style from "./style.module.scss";
 const cx = classNames.bind(style);
 
-type Props = Pick<UseGetTodoList, "todoList"> &
+type Props = Pick<UseGetTodoList, "todoList" | "isLoading"> &
   Pick<UseCreateTodo, "inputTodo" | "onChangeTodo"> &
   Omit<UseUpdateTodo, "update"> & {
     onCreateTodo: () => void;
@@ -24,6 +24,7 @@ function TodoListContents({
   inputTodo,
   updateIdx,
   changedTodo,
+  isLoading,
   onChangeTodo,
   onCreateTodo,
   onClickUpdate,
@@ -51,33 +52,37 @@ function TodoListContents({
         </button>
       </div>
       <ul className={cx("todo-list")}>
-        {todoList.map((model, idx) => {
-          const { id, todo, isCompleted } = model;
-          return (
-            <li key={`${idx}-${id}`} className={cx("todo")}>
-              {idx === updateIdx ? (
-                <Modify
-                  id={id}
-                  isCompleted={isCompleted}
-                  changedTodo={changedTodo}
-                  onUpdate={onUpdate}
-                  onChangeTodoInput={onChangeTodoInput}
-                  onInit={onInit}
-                />
-              ) : (
-                <Todo
-                  idx={idx}
-                  id={id}
-                  todo={todo}
-                  isCompleted={isCompleted}
-                  onClickUpdate={onClickUpdate}
-                  onUpdate={onUpdate}
-                  onDelete={onDelete}
-                />
-              )}
-            </li>
-          );
-        })}
+        {isLoading ? (
+          <div className={cx("loading")}>Loading TodoList...</div>
+        ) : (
+          todoList.map((model, idx) => {
+            const { id, todo, isCompleted } = model;
+            return (
+              <li key={`${idx}-${id}`} className={cx("todo")}>
+                {idx === updateIdx ? (
+                  <Modify
+                    id={id}
+                    isCompleted={isCompleted}
+                    changedTodo={changedTodo}
+                    onUpdate={onUpdate}
+                    onChangeTodoInput={onChangeTodoInput}
+                    onInit={onInit}
+                  />
+                ) : (
+                  <Todo
+                    idx={idx}
+                    id={id}
+                    todo={todo}
+                    isCompleted={isCompleted}
+                    onClickUpdate={onClickUpdate}
+                    onUpdate={onUpdate}
+                    onDelete={onDelete}
+                  />
+                )}
+              </li>
+            );
+          })
+        )}
       </ul>
     </div>
   );
